@@ -19,6 +19,7 @@ pub fn process_playlists(input_dir: &str, input_root: &str, output_dir: &str, ou
     let playlist_paths = Path::new(input_dir).read_dir().unwrap();
     playlist_paths.for_each(|entry| {
         let entry = entry.unwrap();
+        println!("Processing {:?}", entry.path());
 
         let file = File::open(entry.path()).unwrap();
         let reader = BufReader::new(file);
