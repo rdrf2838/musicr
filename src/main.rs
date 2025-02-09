@@ -2,7 +2,7 @@ mod constants;
 use clap::Parser;
 use constants::{COMPUTER_MUSIC_ROOT, COMPUTER_PLAYLIST_ROOT, PHONE_MUSIC_ROOT};
 use core::panic;
-use musicr::process_playlists;
+use musicr;
 
 #[derive(Parser, Debug)]
 #[command(version, about, long_about = None)]
@@ -42,7 +42,7 @@ fn main() {
             panic!("Must specify either input or output directory");
         }
     };
-    process_playlists(
+    musicr::process_playlists(
         &params.input_dir,
         &params.input_root,
         &params.output_dir,
